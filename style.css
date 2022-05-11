@@ -2,6 +2,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(148, 45, 20);
 }
 
 #container {
@@ -13,6 +14,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 25px 30px rgb(53, 52, 52);
+    border-radius: 10%;
 }
 
 #topRow {
@@ -40,6 +43,7 @@ body {
     border-radius: 20%;
     background-color: tan;
     margin: 10px;
+    box-shadow: 10px 5px rgb(121, 89, 47);
 }
 
 #display {
@@ -51,4 +55,9 @@ body {
     font-size: 40px;
     display: flex;
     align-items: center;
+}
+
+.oper, .equal, .clear {
+    background-color: rgb(149, 208, 241);
+    box-shadow: 10px 5px rgb(4, 97, 141);
 }

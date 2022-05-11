@@ -14,61 +14,172 @@ let equal = document.querySelector('.equal')
 let plus = document.querySelector('.plus')
 let minus = document.querySelector('.minus')
 let display = document.querySelector('#display')
+let clear = document.querySelector('.clear')
+let operatorBtn = document.querySelectorAll('.oper')
 let total = [];
+let previous
+let next
+let operator
+/*
+for(let i = 0; i< operatorBtn.length; i++){
+    operatorBtn[i].addEventListener('click', function() {
+        next = display.textContent;
+        if(operator === '/'){
+            display.textContent = mathItUp['/'](previous, next);
+            previous = display.textContent;
+        } else if (operator === '*') {
+            display.textContent = mathItUp['*'](previous, next);
+            previous = display.textContent;
+        } else if (operator === '+'){
+            display.textContent = mathItUp['+'](previous, next);
+            previous = display.textContent;
+        } else if (operator === '-') {
+            display.textContent = mathItUp['-'](previous, next);
+            previous = display.textContent;
+        }
+    })
+}
+*/
 
 one.addEventListener('click', function () {
-    total.push('1');
     display.textContent += '1';
 });
 two.addEventListener('click', function () {
-    total.push('2');
     display.textContent += '2';
 });
 three.addEventListener('click', function () {
-    total.push('3');
     display.textContent += '3';
 });
 four.addEventListener('click', function () {
-    total.push('4');
     display.textContent += '4';
 });
 five.addEventListener('click', function () {
-    total.push('5');
     display.textContent += '5';
 });
 six.addEventListener('click', function () {
-    total.push('6');
     display.textContent += '6';
 });
 seven.addEventListener('click', function () {
-    total.push('7');
     display.textContent += '7';
 });
 eight.addEventListener('click', function () {
-    total.push('8');
     display.textContent += '8';
 });
 nine.addEventListener('click', function () {
-    total.push('9');
     display.textContent += '9';
 });
 zero.addEventListener('click', function () {
-    total.push('0');
     display.textContent += '0';
 });
 divide.addEventListener('click', function () {
-    total.push('/');
-    display.textContent += '/';
+    next = display.textContent;
+    if(operator === '/'){
+         display.textContent = mathItUp['/'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '*') {
+        display.textContent = mathItUp['*'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '+'){
+        display.textContent = mathItUp['+'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '-') {
+        display.textContent = mathItUp['-'](previous, next);
+        previous = display.textContent;
+    }
+    previous = display.textContent;
+    display.textContent = '';
+    operator = '/';
 });
 multiply.addEventListener('click', function () {
-    total.push('*');
-    display.textContent += '*';
+    next = display.textContent;
+    if(operator === '/'){
+        display.textContent = mathItUp['/'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '*') {
+        display.textContent = mathItUp['*'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '+'){
+        display.textContent = mathItUp['+'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '-') {
+        display.textContent = mathItUp['-'](previous, next);
+        previous = display.textContent;
+    }
+    previous = display.textContent;
+    operator = '*';
+    display.textContent = '';
 });
 plus.addEventListener('click', function () {
-    total.push('+');
-    display.textContent += '+';
+    next = display.textContent;
+    if(operator === '/'){
+        display.textContent = mathItUp['/'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '*') {
+        display.textContent = mathItUp['*'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '+'){
+        display.textContent = mathItUp['+'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '-') {
+        display.textContent = mathItUp['-'](previous, next);
+        previous = display.textContent;
+    }
+    previous = display.textContent;
+    operator = '+';
+    display.textContent = '';
 });
 minus.addEventListener('click', function () {
-    total.push('-');
-    display.textContent += '-';
+    next = display.textContent;
+    if(operator === '/'){
+        display.textContent = mathItUp['/'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '*') {
+        display.textContent = mathItUp['*'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '+'){
+        display.textContent = mathItUp['+'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '-') {
+        display.textContent = mathItUp['-'](previous, next);
+        previous = display.textContent;
+    }
+    previous = display.textContent;
+    operator = '-';
+    display.textContent = '';
 });
+clear.addEventListener('click', function () {
+    display.textContent = '';
+    operator = undefined;
+    previous = undefined;
+    next = undefined;
+});
+equal.addEventListener('click', function () {
+    next = display.textContent;
+    if(operator === '/'){
+        display.textContent = mathItUp['/'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '*') {
+        display.textContent = mathItUp['*'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '+'){
+        display.textContent = mathItUp['+'](previous, next);
+        previous = display.textContent;
+    } else if (operator === '-') {
+        display.textContent = mathItUp['-'](previous, next);
+        previous = display.textContent;
+    }
+});
+
+
+let mathItUp = {
+    '+': function(x, y) { return parseInt(x) + parseInt(y) },
+    '-': function(x, y) { return x - y},
+    '*': function(x, y) { return x * y},
+    '/': function(x, y) { 
+        if(y == 0) {
+            return 'Cant divide by 0 stupid'
+        } else {
+        return Math.round((x / y) * 10) / 10
+        }
+    }
+}
