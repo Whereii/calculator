@@ -71,10 +71,10 @@ nine.addEventListener('click', function () {
 zero.addEventListener('click', function () {
     display.textContent += '0';
 });
-divide.addEventListener('click', function () {
+divide.addEventListener('click', function () {      
     next = display.textContent;
     if(operator === '/'){
-         display.textContent = mathItUp['/'](previous, next);
+         display.textContent = mathItUp['/'](previous, next);       //This snippet of code is in all the operators including the equal. It basically runs the math on the previous and next variables
         previous = display.textContent;
     } else if (operator === '*') {
         display.textContent = mathItUp['*'](previous, next);
@@ -172,7 +172,7 @@ equal.addEventListener('click', function () {
 
 
 let mathItUp = {
-    '+': function(x, y) { return parseInt(x) + parseInt(y) },
+    '+': function(x, y) { return parseInt(x) + parseInt(y) },   //Easiest way to run the math on the variables. Couldnt figure out how to convert the operators any other way
     '-': function(x, y) { return x - y},
     '*': function(x, y) { return x * y},
     '/': function(x, y) { 
