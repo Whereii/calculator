@@ -1,1 +1,2 @@
 # calculator
+One of my final odin projects in the fundamentals section. This one wasnt nearly as challenging. Can use multiple operations in a row. At first I wanted to go at it from the angle of putting everything in an array and then converting the array to a string and then the string to a number but then discovered that the eval() function is a security hazard so i made my own math functions for the operators.
