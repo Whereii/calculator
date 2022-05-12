@@ -168,6 +168,9 @@ equal.addEventListener('click', function () {
         display.textContent = mathItUp['-'](previous, next);
         previous = display.textContent;
     }
+    operator = undefined;
+    console.log(previous)
+    console.log(next)
 });
 
 
