@@ -46,6 +46,18 @@ body {
     box-shadow: 10px 5px rgb(121, 89, 47);
 }
 
+.digit:hover {
+    background-color: rgb(243, 171, 77) ;
+}
+
+.oper:hover {
+    background-color: rgb(196, 228, 247);
+}
+
+.equal:hover, .clear:hover {
+    background-color: rgb(196, 228, 247);
+}
+
 #display {
     background-color: black;
     width: 400px;
